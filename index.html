@@ -23,21 +23,19 @@
 
                     let title_blog = localStorage.getItem(localStorage.key(i));
 
-                    if ("honey:core-sdk:*" in title_blog.split(",")) {
-                        continue;
+                    if (!(title_blog.split(",").includes("honey:core-sdk:*"))) {
+                        titleOfBlog.innerText = title_blog.split(",")[0];
+                        titleOfBlog.style.color = 'black';
+                        titleOfBlog.style.textAlign = 'left';
+                        titleOfBlog.style.paddingLeft = '40px';
+                        titleOfBlog.style.fontSize = '20px'
+
+                        document.body.appendChild(titleOfBlog);
+
+                        // break tag
+                        let br = document.createElement("br");
+                        document.body.appendChild(br);
                     }
-
-                    titleOfBlog.innerText = title_blog.split(",")[0];
-                    titleOfBlog.style.color = 'black';
-                    titleOfBlog.style.textAlign = 'left';
-                    titleOfBlog.style.paddingLeft = '40px';
-                    titleOfBlog.style.fontSize = '20px'
-
-                    document.body.appendChild(titleOfBlog);
-
-                    // break tag
-                    let br = document.createElement("br");
-                    document.body.appendChild(br);
                 }
             </script>
         </div>
