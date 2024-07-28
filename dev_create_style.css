@@ -1,0 +1,13 @@
+.main {
+    text-align: center;
+}
+
+.title {
+    width: 500px;
+}
+
+.blog {
+    width: 500px;
+    vertical-align: text-top;
+    font: sans-serif;
+}

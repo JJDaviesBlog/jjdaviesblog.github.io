@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dev_create_style.css">
+    <title>Document</title>
+</head>
+<body class="main">
+    <script src="backend/post_handler.js"></script>
+
+    <h3>Enter Your Username</h3>
+    <input id="user">
+    <br>
+    <h3>Enter title</h3>
+    <input class="title" id="title">
+    <br>
+    <h3>Enter some text</h3>
+    <textarea class="blog" id="blog"></textarea>
+    <br>
+    <button onclick="addData()">Add Data</button>
+    <button onclick="clearStorage()">Clear Data</button>
+
+    <h3 id="storage"></h3>
+</body>
+</html>
