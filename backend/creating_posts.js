@@ -1,4 +1,6 @@
-idx = 1
+idx = 1;
+
+if ("honey:core-sdk:*")
 
 function addData() {
     let user = `JessicaD57_${idx}`;
