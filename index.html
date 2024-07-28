@@ -23,7 +23,7 @@
 
                     let title_blog = localStorage.getItem(localStorage.key(i));
 
-                    if ("honey:core-sdk:*" in title_blog) {
+                    if ("honey:core-sdk:*" in title_blog.split(",")) {
                         continue;
                     }
 
