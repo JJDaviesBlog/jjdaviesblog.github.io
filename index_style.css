@@ -19,7 +19,8 @@ body {
     font-size: 17px;
 }
 
-.nav_list li {
+/* for elements on right side of nav bar */
+/* .nav_list li {
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -27,10 +28,10 @@ body {
     text-decoration:none;
     font-size: 17px;
     list-style: none;
-}
+} */
 
 .feed {
     color: black;
-    text-align: left;
+    text-align: center;
     padding-left: 40px;
 }

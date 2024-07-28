@@ -12,7 +12,27 @@
         </div>
 
         <div class="feed">
-            <h1>Activity will be here soon, stay tuned...</h1>
+            <h2>Latest Blogs</h2>
+
+            <script>
+                for (let i = 0; i < localStorage.length; i++) {
+                    let titleOfBlog = document.createElement("a");
+                    titleOfBlog.href = 'view_blog.html';
+
+                    // function func() { }
+                    // titleOfBlog.addEventListener('click', func)
+
+                    let title_blog = localStorage.getItem(localStorage.key(i));
+
+                    titleOfBlog.innerText = title_blog.split(",")[0];
+                    titleOfBlog.style.color = 'black';
+                    titleOfBlog.style.textAlign = 'left';
+                    titleOfBlog.style.paddingLeft = '40px';
+                    titleOfBlog.style.fontSize = '20px'
+
+                    document.body.appendChild(titleOfBlog);
+                }
+            </script>
         </div>
     </body>
 </html>
