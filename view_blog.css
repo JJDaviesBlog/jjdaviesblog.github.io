@@ -1,0 +1,58 @@
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgb(115, 93, 165);
+    background-color: rgb(211, 197, 229);
+    text-align: center;
+}
+
+.nav_list {
+    overflow: hidden;
+    background-color: rgb(115, 93, 165);
+}
+  
+.nav_list a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.nav_list li {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:none;
+    font-size: 17px;
+    list-style: none;
+}
+
+.blogInfo {
+    color: black;
+    text-align: center;
+    padding-left: 40px;
+}
+
+.title {
+    width: 500px;
+    font-size: 20px;
+}
+
+.mainBlog {
+    width: 500px;
+    height: 300px;
+    vertical-align: text-top;
+}
+
+.btnPublish {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.btnClear {
+    width: 100px;
+    height: 50px;
+}
