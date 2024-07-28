@@ -13,13 +13,16 @@
 
         <div class="feed">
             <h2>Latest Blogs</h2>
-            <script>
+
+            <script type="text/javascript">
                 for (let i = 0; i < localStorage.length; i++) {
                     let titleOfBlog = document.createElement("a");
                     titleOfBlog.href = 'view_blog.html';
 
-                    // function func() { }
-                    // titleOfBlog.addEventListener('click', func)
+                    // function myFunc() { chosen =  }
+
+                    num = 12; // temp
+                    //titleOfBlog.addEventListener('click', myFunc)
 
                     let title_blog = localStorage.getItem(localStorage.key(i));
 

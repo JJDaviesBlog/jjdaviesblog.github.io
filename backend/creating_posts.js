@@ -1,4 +1,4 @@
-idx = 1;
+let idx = Math.floor(Math.random() * 999999) + 1;
 
 function addData() {
     let user = `JessicaD57_${idx}`;
