@@ -9,13 +9,14 @@
     <body class="body">
         <div class="nav_list">
             <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
         </div>
 
         <div class="feed">
-            <h2>Latest Blogs</h2>
+            <h2 class="latest">Latest Blogs</h2>
 
             <script type="text/javascript">
-                for (let i = 0; i < localStorage.length; i++) {
+                for (let i = 0; i < 4; i++) {
                     let titleOfBlog = document.createElement("button");
                     titleOfBlog.onclick = function() {
                         window.location.href = `view_blog.html?chosen=${i}`;
@@ -23,18 +24,15 @@
 
                     let title_blog = localStorage.getItem(localStorage.key(i));
 
-                    if (!(title_blog.split(",").includes("honey:core-sdk:*"))) {
-                        titleOfBlog.innerText = title_blog.split(",")[0];
+                    if (!(title_blog.split("||").includes("honey:core-sdk:*"))) {
+                        titleOfBlog.innerText = title_blog.split("||")[0];
                         titleOfBlog.style.color = 'black';
-                        titleOfBlog.style.textAlign = 'left';
-                        titleOfBlog.style.paddingLeft = '40px';
-                        titleOfBlog.style.fontSize = '20px'
+                        titleOfBlog.style.textAlign = 'centre';
+                        titleOfBlog.style.fontSize = '20px';
+                        titleOfBlog.style.width = '150px';
+                        titleOfBlog.style.height = '150px';
 
                         document.body.appendChild(titleOfBlog);
-
-                        // break tag
-                        let br = document.createElement("br");
-                        document.body.appendChild(br);
                     }
                 }
             </script>

@@ -19,24 +19,8 @@ body {
     font-size: 17px;
 }
 
-/* for elements on right side of nav bar */
-/* .nav_list li {
-    float: right;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration:none;
-    font-size: 17px;
-    list-style: none;
-} */
-
-.latest {
-    text-align: left;
-    padding-left: 40px;
-}
-
-.feed {
+.blogInfo {
     color: black;
-    text-align: center;
+    text-align: left;
     padding-left: 40px;
 }

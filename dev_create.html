@@ -14,8 +14,15 @@
     <h3>Enter title</h3>
     <input class="title" id="title">
     <br>
-    <h3>Enter some text</h3>
+    <h3>Write your blog</h3>
     <textarea class="blog" id="blog"></textarea>
+    <br>
+    <h3>Category</h3>
+    <input list="categories"/>
+    <datalist id="categories">
+        <option value="Programming"></option>
+        <option value="University"></option>
+    </datalist>
     <br>
     <button onclick="addData()">Add Data</button>
     <button onclick="clearStorage()">Clear Data</button>
