@@ -16,13 +16,10 @@
 
             <script type="text/javascript">
                 for (let i = 0; i < localStorage.length; i++) {
-                    let titleOfBlog = document.createElement("a");
-                    titleOfBlog.href = 'view_blog.html';
-
-                    // function myFunc() { chosen =  }
-
-                    num = 12; // temp
-                    //titleOfBlog.addEventListener('click', myFunc)
+                    let titleOfBlog = document.createElement("button");
+                    titleOfBlog.onclick = function() {
+                        window.location.href = `view_blog.html?chosen=${i}`;
+                    };
 
                     let title_blog = localStorage.getItem(localStorage.key(i));
 

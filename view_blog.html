@@ -15,5 +15,16 @@
             <h2 id="title">[TITLE GOES HERE]</h2>
             <h4 id="blog">[DESCRIPTION GOES HERE]</h4>
         </div>
+
+        <script type="text/javascript">
+            const params = new URLSearchParams(window.location.search);
+            const chosen = params.get('chosen');
+            console.log(chosen);
+
+            let title_blog = localStorage.getItem(localStorage.key(chosen)).split(",");
+
+            document.getElementById("title").innerText = `${title_blog[0]}`;
+            document.getElementById("blog").innerText = `${title_blog[1]}`;
+        </script>
     </body>
 </html>
