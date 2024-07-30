@@ -29,30 +29,8 @@ body {
     list-style: none;
 }
 
-.blogInfo {
-    color: black;
-    text-align: center;
-    padding-left: 40px;
-}
-
-.title {
-    width: 500px;
-    font-size: 20px;
-}
-
-.mainBlog {
-    width: 500px;
-    height: 300px;
-    vertical-align: text-top;
-}
-
-.btnPublish {
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-}
-
-.btnClear {
-    width: 100px;
-    height: 50px;
+.blog {
+    text-align: left;
+    padding-left: 60px;
+    padding-right: 60px;
 }
