@@ -26,9 +26,10 @@
                 // get all categories from all blog
                 for (let i = 0; i < localStorage.length; i++) {
                     let title_blog = localStorage.getItem(localStorage.key(i));
-                    let cate_gory = title_blog.split("||")[2];
-
-                    visited.add(cate_gory);
+                    if (!(title_blog.split("||").includes("undefined"))) {
+                        let cate_gory = title_blog.split("||")[2];
+                        visited.add(cate_gory);
+                    }
                 }
 
                 // for e in visited
