@@ -19,6 +19,26 @@
                 const params = new URLSearchParams(window.location.search);
                 const chosen = params.get('chosen');
                 document.getElementById("categories").innerText = chosen;
+
+                for (let i = 0; i < localStorage.length; i++) {
+                    let title_blog = localStorage.getItem(localStorage.key(i));
+
+                    if (title_blog.includes(chosen)) {
+                        let blogTitles = document.createElement("button");
+                        blogTitles.onclick = function() {
+                            window.location.href = `view_blog.html?chosen=${i}`;
+                        };
+
+                        blogTitles.innerText = title_blog.split("||")[0];
+                        blogTitles.style.color = 'black';
+                        blogTitles.style.textAlign = 'centre';
+                        blogTitles.style.fontSize = '20px';
+                        blogTitles.style.width = '150px';
+                        blogTitles.style.height = '150px';
+
+                        document.body.appendChild(blogTitles);
+                    }
+                }
             </script>
         </div>
     </body>
