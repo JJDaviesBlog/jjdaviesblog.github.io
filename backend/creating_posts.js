@@ -3,7 +3,7 @@ let idx = Math.floor(Math.random() * 999999) + 1;
 function addData() {
     let user = `JessicaD57_${idx}`;
     idx += 1;
-    let smth = `${document.getElementById("title").value}||${document.getElementById("blog").value}`;
+    let smth = `${document.getElementById("title").value}||${document.getElementById("blog").value}||${document.getElementById("category").value}`;
 
     if (document.getElementById("title").value == "" || document.getElementById("blog").value == "") {
         document.getElementById("storage").innerHTML = "Please enter some text.";

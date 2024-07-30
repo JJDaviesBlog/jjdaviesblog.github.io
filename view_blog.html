@@ -14,6 +14,7 @@
 
         <div class="blogInfo">
             <h2 id="title">[TITLE GOES HERE]</h2>
+            <h3 id="category">[DESCRIPTION GOES HERE]</h3>
             <h4 id="blog">[DESCRIPTION GOES HERE]</h4>
         </div>
 
@@ -21,10 +22,11 @@
             const params = new URLSearchParams(window.location.search);
             const chosen = params.get('chosen');
 
-            let title_blog = localStorage.getItem(localStorage.key(chosen)).split(",");
+            let title_blog = localStorage.getItem(localStorage.key(chosen)).split("||");
 
             document.getElementById("title").innerText = `${title_blog[0]}`;
             document.getElementById("blog").innerText = `${title_blog[1]}`;
+            document.getElementById("category").innerText = `Category: ${title_blog[2]}`;
         </script>
     </body>
 </html>
