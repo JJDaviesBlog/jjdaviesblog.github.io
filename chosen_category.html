@@ -13,10 +13,12 @@
         </div>
 
         <div class="blogInfo">
-            <h2 class="categories">Chosen Categories</h2>
+            <h2 id="categories" class="categories">Chosen Categories</h2>
 
             <script type="text/javascript">
-
+                const params = new URLSearchParams(window.location.search);
+                const chosen = params.get('chosen');
+                document.getElementById("categories").innerText = chosen;
             </script>
         </div>
     </body>

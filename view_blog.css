@@ -29,6 +29,10 @@ body {
     list-style: none;
 }
 
+.blogInfo {
+    color: black;
+}
+
 .blog {
     text-align: left;
     padding-left: 60px;
