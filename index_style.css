@@ -30,13 +30,7 @@ body {
     list-style: none;
 } */
 
-.latest {
-    text-align: left;
-    padding-left: 40px;
-}
-
-.feed {
+.blogs {
     color: black;
-    text-align: center;
-    padding-left: 40px;
+    display: inline;
 }

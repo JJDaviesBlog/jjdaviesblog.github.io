@@ -1,9 +1,15 @@
 let idx = Math.floor(Math.random() * 999999) + 1;
 
 function addData() {
-    let user = `JessicaD57_${idx}`;
+    let fileInput = document.getElementById("imgFile");
+    let file = fileInput.files[0];
+    let ImgURL = URL.createObjectURL(file);
+
+    console.log(ImgURL);
+
+    let user = `${idx}`;
     idx += 1;
-    let smth = `${document.getElementById("title").value}||${document.getElementById("blog").value}||${document.getElementById("category").value}`;
+    let smth = `${ImgURL}||${document.getElementById("title").value}||${document.getElementById("blog").value}||${document.getElementById("category").value}`;
 
     if (document.getElementById("title").value == "" || document.getElementById("blog").value == "") {
         document.getElementById("storage").innerHTML = "Please enter some text.";
@@ -12,7 +18,7 @@ function addData() {
     } else {
         // allows multiple blogs to be published by one user
         localStorage.setItem(user, smth);
-        document.getElementById("storage").innerHTML = "Data added!";
+        document.getElementById("storage").innerHTML = `Data added: ${document.getElementById("title").value}`;
         console.log(localStorage);
     }
 }

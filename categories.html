@@ -15,41 +15,38 @@
         <div class="blogInfo">
             <h2 class="categories">Categories</h2>
 
-            <script type="text/javascript">
-                /*
-                algorithm
-                - create a set of all categories, so that there are no duplicates
-                - Each category will be a button that goes to `chosen_category.html`, but with the chosen category (similar to viewing a blog post)
-                */
-                let visited = new Set();
-
-                // get all categories from all blog
-                for (let i = 0; i < localStorage.length; i++) {
-                    let title_blog = localStorage.getItem(localStorage.key(i));
-                    if (!(title_blog.split("||").includes("undefined"))) {
-                        let cate_gory = title_blog.split("||")[2];
-                        visited.add(cate_gory);
+            <div>
+                <script type="text/javascript">
+                    let visited = new Set();
+    
+                    // get all categories from all blog
+                    for (let i = 0; i < localStorage.length; i++) {
+                        let title_blog = localStorage.getItem(localStorage.key(i));
+                        if (!(title_blog.split("||").includes("undefined"))) {
+                            let cate_gory = title_blog.split("||")[3];
+                            visited.add(cate_gory);
+                        }
                     }
-                }
-
-                // for e in visited
-                for (let e of visited) {
-                    let element = document.createElement("button");
-
-                    element.onclick = function() {
-                        window.location.href = `chosen_category.html?chosen=${e}`;
-                    };
-
-                    element.innerText = e;
-                    element.style.color = 'black';
-                    element.style.textAlign = 'centre';
-                    element.style.fontSize = '20px';
-                    element.style.width = '150px';
-                    element.style.height = '50px';
-
-                    document.body.appendChild(element);
-                }
-            </script>
+    
+                    // for e in visited
+                    for (let e of visited) {
+                        let element = document.createElement("button");
+    
+                        element.onclick = function() {
+                            window.location.href = `chosen_category.html?chosen=${e}`;
+                        };
+    
+                        element.innerText = e;
+                        element.style.color = 'black';
+                        element.style.textAlign = 'centre';
+                        element.style.fontSize = '20px';
+                        element.style.width = '150px';
+                        element.style.height = '50px';
+    
+                        document.body.appendChild(element);
+                    }
+                </script>
+            </div>
         </div>
     </body>
 </html>
