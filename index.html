@@ -27,6 +27,8 @@
     
                         if (!(title_blog.split("||").includes("honey:core-sdk:*"))) {
                             let img = document.createElement("img");
+                            img.width = "120px";
+                            img.height = "100px";
                             img.src = title_blog.split("||")[0];
 
                             titleOfBlog.innerText = title_blog.split("||")[1];

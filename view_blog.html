@@ -25,7 +25,10 @@
             const chosen = params.get('chosen');
 
             let title_blog = localStorage.getItem(localStorage.key(chosen)).split("||");
+            let img = document.createElement("img");
+            img.src = title_blog[0];
 
+            document.body.appendChild(img);
             document.getElementById("title").innerText = `${title_blog[1]}`;
             document.getElementById("blog").innerText = `${title_blog[2]}`;
             document.getElementById("category").innerText = `Category: ${title_blog[3]}`;
