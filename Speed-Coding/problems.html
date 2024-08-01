@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="problems.css">
+    <title>Problems - Speed Coding</title>
+</head>
+<body>
+    <div class="nav_list">
+        <a href="main.html">Home</a>
+        <a href="problems.html">Problems</a>
+    </div>
+
+    <h2 class="header">All Coding Problems</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Problem</th>
+                <th>Difficulty</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <script type="text/javascript">
+                /*
+                To access both the title and description, we can split using the seperator "||".
+                */
+                let allProblems = {
+                    "Simple Addition||Create a function that takes in 2 numbers: num1 and num2, and returns their sum.||Easy||addNums": ["hello world"]
+                };
+        
+                for (let e in allProblems) {
+                    let tr_tag = document.createElement("tr");
+                    let prob = document.createElement("td");
+                    let probLink = document.createElement('a');
+                    probLink.href = `challenge.html?chosen=${e}`
+                    let diff = document.createElement("td");
+                    let probInfo = e.split("||");
+
+                    probLink.innerText = probInfo[0];
+                    diff.innerText = probInfo[2];
+        
+                    tr_tag.appendChild(prob);
+                    tr_tag.appendChild(diff);
+
+                    prob.appendChild(probLink);
+
+                    document.body.appendChild(tr_tag);
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>

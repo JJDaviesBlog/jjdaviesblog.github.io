@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="challenge_style.css">
+    <title>Challenge</title>
+</head>
+<body>
+    <h2 id="problemTitle"></h2>
+    <p id="problemDesc"></p>
+    <p id="problemDiff"><b></b></p>
+    <br>
+    <textarea id="code" class="code" style="height: 500px; width: 500px;"></textarea>
+    <br>
+    <button onclick="startTimer()" class="btnTimerStart">Start Timer</button>
+    <h3 id="result" class="result"></h3>
+
+    <script type="text/javascript">
+        // get the chosen problem
+        const params = new URLSearchParams(window.location.search);
+        const chosen = params.get('chosen');
+
+        document.getElementById("problemTitle").innerHTML = chosen.split("||")[0];
+        document.getElementById("problemDesc").innerText = chosen.split("||")[1];
+        let diff = chosen.split("||")[2];
+        document.getElementById("problemDiff").innerText = `Difficulty: ${diff}`;
+
+        if (diff == "Easy") {
+            document.getElementById("problemDiff").style.color = "#059862";
+        }
+
+        let textarea = document.getElementById("code");
+        textarea.innerText = `def ${chosen.split("||")[3]}():`
+
+        function hideTextarea() {
+            let textarea = document.getElementById("code");
+            textarea.style.visibility = "hidden";
+        }
+
+        function timerFinished() {
+            document.getElementById("result").innerText = "Timer completed";
+        }
+
+        function startTimer() {
+            textarea.style.visibility = 'visible';
+            setTimeout(timerFinished, 1000); // 1000 miliseconds = 1 second
+        }
+
+        // Hide the textarea when the page loads
+        window.onload = hideTextarea;
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+body {
+    text-align: center;
+    background-color: rgb(16, 24, 32);
+    color: white;
+}
+
+.code {
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    color: black;
+}
+
+.btnTimerStart {
+    height: 50px;
+    width: 120px;
+    font-size: 17px;
+}
+
+.result {
+    color: white;
+}

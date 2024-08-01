@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgb(16, 24, 32);
+}
+
+.nav_list {
+    overflow: hidden;
+    background-color: rgb(115, 93, 165);
+}
+  
+.nav_list a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.header {
+    color: white;
+}

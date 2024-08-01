@@ -19,8 +19,7 @@ body {
     font-size: 17px;
 }
 
-/* for elements on right side of nav bar */
-/* .nav_list li {
+.nav_list li {
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -28,15 +27,13 @@ body {
     text-decoration:none;
     font-size: 17px;
     list-style: none;
-} */
-
-.latestTitle {
-    color: black;
-    text-align: left;
-    padding-left: 30px;
 }
 
-.blogs {
+.blogInfo {
     color: black;
-    display: inline;
+}
+
+.blogInfo ul {
+    list-style-type: none;
+    text-align: left;
 }
