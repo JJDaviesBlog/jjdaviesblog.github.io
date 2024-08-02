@@ -25,28 +25,47 @@
         <tbody>
             <script type="text/javascript">
                 /*
-                To access both the title and description, we can split using the seperator "||".
+                To access all problem data, we can split using the seperator "||".
                 */
                 let allProblems = {
-                    "Simple Addition||Create a function that takes in 2 numbers: num1 and num2, and returns their sum.||Easy||addNums": ["hello world"]
+                    // key: "title||desc||difficulty||func name"
+                    // value: list of test cases and their expected answers
+                    "Simple Addition||Create a function that takes in 2 numbers: num1 and num2, and returns their sum.||Easy||addNums": "addNums(2, 2)_4|addNums(5, 8)_13|addNums(-2, 5)_3",
+                    "Split This String!||Create a function that takes in a string s, and returns that string split into a list.||Easy||splitting": "splitting('hello world')_['hello', 'world']|splitting('this is some text')_['this', 'is', 'some', 'text']",
+                    "Area of a Triangle||Write a function that takes the base and height of a triangle and return its area.||Easy||triArea": "triArea(3, 2)_3|triArea(7, 4)_14|triArea(10, 10)_50"
+
                 };
         
                 for (let e in allProblems) {
                     let tr_tag = document.createElement("tr");
+
                     let prob = document.createElement("td");
                     let probLink = document.createElement('a');
-                    probLink.href = `challenge.html?chosen=${e}`
+
+                    probLink.href = `challenge.html?chosen=${e}&solutions=${allProblems[e]}`
                     let diff = document.createElement("td");
                     let probInfo = e.split("||");
 
                     probLink.innerText = probInfo[0];
+                    probLink.style.textDecoration = 'none';
+                    probLink.style.color = 'white';
                     diff.innerText = probInfo[2];
+
+                    if (diff.innerText == "Easy") {
+                        diff.style.color = "#059862";
+                    } else if (diff.innerText == "Medium") {
+                        diff.style.color = "#ffc01e"
+                    } else if (diff.innerText == "Hard") {
+                        diff.style.color = "#ff375f"
+                    }
         
                     tr_tag.appendChild(prob);
                     tr_tag.appendChild(diff);
 
                     prob.appendChild(probLink);
 
+                    tr_tag.style.marginLeft = 'auto';
+                    tr_tag.style.marginRight = 'auto';
                     document.body.appendChild(tr_tag);
                 }
             </script>

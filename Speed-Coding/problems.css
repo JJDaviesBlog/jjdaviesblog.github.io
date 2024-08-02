@@ -20,12 +20,13 @@ body {
 }
 
 table {
-    font-family: arial, sans-serif;
-    vertical-align: middle;
     border-collapse: collapse;
+    border-color: inherit;
+    margin-left: auto; 
+    margin-right: auto;
 }
   
-td, th {
+th, td {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
