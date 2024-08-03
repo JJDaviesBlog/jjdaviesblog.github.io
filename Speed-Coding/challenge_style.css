@@ -22,7 +22,7 @@ body {
 .probInfo {
     box-sizing: content-box; 
     border: 1px solid #dddddd;
-    width: 400px;
+    width: 500px;
     float: left;
     padding-left: 40px;
     padding-bottom: 40px;
@@ -31,7 +31,7 @@ body {
 .codeArea {
     box-sizing: content-box; 
     border: 1px solid #dddddd;
-    width: 600px;
+    width: 700px;
     float: left;
     padding-left: 40px;
     padding-bottom: 40px;

@@ -18,7 +18,8 @@
     <div class="probInfo">
         <h2 id="problemTitle"></h2>
         <p id="problemDesc" class="problemDesc"></p>
-        <b>Note: You will need to add the parameters into the function yourself.</b>
+        <p><b>Note:</b> You will need to add the parameters into the function yourself.</p>
+        <b id="outputTime"></b>
         <p id="problemDiff"><b></b></p>
         <br>
         <h2>Examples:</h2>
@@ -61,10 +62,13 @@
 
         if (diff == "Easy") {
             document.getElementById("problemDiff").style.color = "#059862";
+            document.getElementById("outputTime").innerText = "As this challenge is on easy mode, you will have 2 minutes to complete the challenge.";
         } else if (diff == "Medium") {
-            document.getElementById("problemDiff").style.color = "#ffc01e"
+            document.getElementById("problemDiff").style.color = "#ffc01e";
+            document.getElementById("outputTime").innerText = "As this challenge is on medium mode, you will have 3 minutes to complete the challenge.";
         } else if (diff == "Hard") {
-            document.getElementById("problemDiff").style.color = "#ff375f"
+            document.getElementById("problemDiff").style.color = "#ff375f";
+            document.getElementById("outputTime").innerText = "As this challenge is on hard mode, you will have 5 minutes to complete the challenge.";
         }
 
         // handle examples
@@ -204,8 +208,8 @@ test_code()
             }
 
 
-            if (diff == "Easy") { // set a timer for 1 minutes (60 seconds), if easy mode
-                timeLimit = 60; // seconds
+            if (diff == "Easy") { // set a timer for 2 minutes (120 seconds), if easy mode
+                timeLimit = 120; // seconds
             
             } else if (diff == "Medium") { // set a timer for 3 minutes (180 seconds), if medium mode
                 timeLimit = 180; // seconds
