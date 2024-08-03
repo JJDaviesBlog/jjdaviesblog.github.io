@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/brython@3.12.4/brython.min.js">
+        </script>
+    </head>
+
+    <body onload="brython()">
+        <input type="text" id="code">
+        <br>
+        <button id="btn">Submit equation</button>
+        <br>
+        <p id="output"></p>
+        <script type="text/python">
+            from browser import document
+
+            def evaluate(event):
+                givenCode = document["code"].value
+                return eval(givenCode)
+            
+            document["btn"].bind("click", test)
+        </script>
+    </body>
+</html>

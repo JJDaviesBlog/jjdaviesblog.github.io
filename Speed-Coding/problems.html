@@ -27,13 +27,17 @@
                 /*
                 To access all problem data, we can split using the seperator "||".
                 */
+
+                // testing section
+                
+
                 let allProblems = {
                     // key: "title||desc||difficulty||func name"
                     // value: list of test cases and their expected answers
-                    "Simple Addition||Create a function that takes in 2 numbers: num1 and num2, and returns their sum.||Easy||addNums": "addNums(2, 2)_4|addNums(5, 8)_13|addNums(-2, 5)_3",
                     "Split This String!||Create a function that takes in a string s, and returns that string split into a list.||Easy||splitting": "splitting('hello world')_['hello', 'world']|splitting('this is some text')_['this', 'is', 'some', 'text']",
-                    "Area of a Triangle||Write a function that takes the base and height of a triangle and return its area.||Easy||triArea": "triArea(3, 2)_3|triArea(7, 4)_14|triArea(10, 10)_50"
-
+                    "Area of a Triangle||Write a function that takes the base and height of a triangle and return its area.||Easy||triArea": "triArea(3, 2)_3|triArea(7, 4)_14|triArea(10, 10)_50",
+                    "Smallest and Biggest Numbers||Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.||Easy||minMax": "minMax([1, 2, 3, 4, 5])_[1, 5]|minMax([2334454, 5])_[5, 2334454]|minMax([1])_[1, 1]"
+                
                 };
         
                 for (let e in allProblems) {

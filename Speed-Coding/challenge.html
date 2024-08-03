@@ -4,44 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="challenge_style.css">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/brython@3.12.4/brython.min.js">
+    </script>
     <title>Challenge</title>
 </head>
-<body>
-    <h2 id="problemTitle"></h2>
-    <p id="problemDesc"></p>
-    <p>Note: You will need to add the parameters into the function yourself.</p>
-    <p id="problemDiff"><b></b></p>
-    <br>
-    <div class="languages">
-        <button id="selectedLang" class="selectedLang">JavaScript</button>
-        <div class="dropdown-content">
-            <a href="#" onclick="changeLang('JavaScript')">JavaScript</a>
-            <a href="#" onclick="changeLang('Python3')">Python3</a>
-        </div>
+<body onload="brython()">
+    <div class="nav_list">
+        <a href="main.html">Home</a>
+        <a href="problems.html">Problems</a>
     </div>
-    <br>
-    <textarea id="code" class="code" style="height: 200px; width: 500px; background-color: rgb(16, 24, 32); color: rgb(0, 190, 44);"></textarea>
-    <br>
 
-    <div class="btns">
-        <button onclick="startTimer()" class="btnTimerStart">Start Timer</button>
-        <button onclick="submitEarly()" id="btnSubmit" class="btnSubmit">Submit Code Early</button>
+    <div class="probInfo">
+        <h2 id="problemTitle"></h2>
+        <p id="problemDesc" class="problemDesc"></p>
+        <b>Note: You will need to add the parameters into the function yourself.</b>
+        <p id="problemDiff"><b></b></p>
+        <br>
+        <h2>Examples:</h2>
+        <div id="examples"></div>
     </div>
-    <h3 id="countdown">Countdown will go here when the timer starts.</h3>
-    <h3 id="smth" class="smth"></h3>
-    <h3 id="result" class="result"></h3>
+
+    <div class="codeArea">
+        <p id="langChosen"></p>
+        <div class="languages" id="languages">
+            <button id="selectedLang" class="selectedLang">JavaScript</button>
+            <div class="dropdown-content">
+                <a href="#" onclick="changeLang('JavaScript')">JavaScript</a>
+                <!-- <a href="#" onclick="changeLang('Python3')">Python3</a> -->
+            </div>
+        </div>
+        <br>
+        <textarea id="code" class="code" style="height: 300px; width: 500px; background-color: rgb(16, 24, 32); color: rgb(0, 190, 44);"></textarea>
+        <br>
+        <div class="btns">
+            <button onclick="startTimer()" id="btnTimerStart" class="btnTimerStart">Start Timer</button>
+        </div>
+        <h3 id="countdown">Countdown will go here when the timer starts.</h3>
+        <h3 id="smth" class="smth"></h3>
+        <h3 id="result" class="result"></h3>
+    </div>
 
     <script type="text/javascript">
         // get the chosen problem
         const params = new URLSearchParams(window.location.search);
         const chosen = params.get('chosen');
         const solutions = params.get('solutions');
-
-        // this works
-        // let a = [];
-        // a[0] = "hi";
-        // a[1] = 2;
-        // console.log(a);
 
         // default the language used to JavaScript
         let progLang = "JavaScript";
@@ -59,9 +67,21 @@
             document.getElementById("problemDiff").style.color = "#ff375f"
         }
 
-        let textarea = document.getElementById("code");
-        let btnSubmit = document.getElementById("btnSubmit");
+        // handle examples
+        let s = solutions.split("|");
+        for (let i = 0; i < s.length; i++) {
+            let temp = s[i].split("_");
 
+            let egLbl = document.createElement("p");
+            egLbl.innerText = `Example ${i+1}:`
+            let listItem = document.createElement("code");
+            listItem.innerText = `${temp[0]} -> ${temp[1]}`
+
+            document.getElementById("examples").appendChild(egLbl);
+            document.getElementById("examples").appendChild(listItem);
+        }
+
+        let textarea = document.getElementById("code");
         let countdownInterval;
 
         // FUNCTIONS AREA //
@@ -71,23 +91,21 @@
             document.getElementById("selectedLang").innerHTML = language;
         }
 
-        function hideElements() {
+        function hideTxt() {
             textarea.style.visibility = "hidden";
-            btnSubmit.style.visibility = "hidden";
         }
 
         function timerFinished() {
             document.getElementById("countdown").innerText = "";
             document.getElementById("result").innerText = "Time's up!";
-            textarea.style.visibility = "hidden";
+            hideTxt();
             setTimeout(evalCode, 1500);
         }
 
         function evalCode() {
             document.getElementById("smth").innerText = "Let's evaluate your code...";
             let givenCode = document.getElementById("code").value;
-            let s = solutions.split("|");
-            let allAns = [];
+            //let s = solutions.split("|");
 
             if (progLang == "JavaScript") {
                 givenCode += `
@@ -120,12 +138,63 @@
                 }
                 `
                 eval(givenCode);
+            } else if (progLang == "Python3") {
+                let execScript = `
+from browser import document
+output = ""
+def test_code():
+    global output
+    answers = []
+`
+                for (let i = 0; i < s.length; i++) {
+                    let current = s[i].split("_");
+                    let testCase = current[0];
+                    let expected = current[1];
+
+                    let t = `
+    answers.append(${testCase} == ${expected}) # expected ans: ${expected}
+`
+                    execScript += t;
+                }
+
+                execScript += `
+    j = 1
+    document["result"].text = ""
+    for a in answers:
+        if a:
+            output += f"Test case {j}: passed\\n"
+        else:
+            output += f"Test case {j}: failed\\n"
+        j+=1
+    document["result"].text = output
+
+test_code()
+`
+                // Run the generated script with Brython
+                __BRYTHON__.run_script(execScript)
             }
         }
 
         function startTimer() {
             textarea.style.visibility = "visible";
-            btnSubmit.style.visibility = "visible";
+            document.getElementById("languages").style.visibility = "hidden";
+            document.getElementById("langChosen").innerText = `Chosen Language: ${progLang}`;
+
+            document.getElementById('code').addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+
+                    // Get the current cursor position
+                    var start = this.selectionStart;
+                    var end = this.selectionEnd;
+
+                    // Set the textarea value to: text before caret + tab + text after caret
+                    this.value = this.value.substring(0, start) + "\t" + this.value.substring(end);
+
+                    // Put the caret at the right position again
+                    this.selectionStart = this.selectionEnd = start + 1;
+                }
+            });
 
             // setting language
             if (progLang == "JavaScript") {
@@ -145,6 +214,10 @@
                 timeLimit = 300; // seconds
             }
 
+            let oldStart = document.getElementById("btnTimerStart");
+            oldStart.onclick = submitEarly;
+            oldStart.innerText = "Submit Code Early";
+
             document.getElementById("countdown").innerText = `Time left to complete: ${timeLimit} seconds`;
             countdownInterval = setInterval(function() {
                 document.getElementById("countdown").innerText = `Time left to complete: ${timeLimit} seconds`;
@@ -163,7 +236,7 @@
         }
 
         // Hide the textarea when the page loads
-        window.onload = hideElements;
+        window.onload = hideTxt;
     </script>
 </body>
 </html>
