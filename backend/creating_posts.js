@@ -1,5 +1,3 @@
-let idx = Math.floor(Math.random() * 999999) + 1;
-
 function addData() {
     let fileInput = document.getElementById("imgFile");
     let file = fileInput.files[0];

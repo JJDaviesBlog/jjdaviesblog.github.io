@@ -10,7 +10,6 @@
         <div class="nav_list">
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
-            <a href="online-games.html">Online Games</a>
         </div>
 
         <div class="blogInfo">
@@ -21,8 +20,8 @@
                 const chosen = params.get('chosen');
                 document.getElementById("categories").innerText = chosen;
 
-                for (let i = 0; i < sessionStorage.length; i++) {
-                    let title_blog = sessionStorage.getItem(sessionStorage.key(i));
+                for (let i = 0; i < localStorage.length; i++) {
+                    let title_blog = localStorage.getItem(localStorage.key(i));
 
                     if (title_blog.includes(chosen)) {
                         let blogTitles = document.createElement("button");
