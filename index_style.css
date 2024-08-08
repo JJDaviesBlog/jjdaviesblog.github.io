@@ -2,7 +2,6 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: rgb(115, 93, 165);
     background-color: rgb(211, 197, 229);
-    text-align: center;
 }
 
 .nav_list {
@@ -30,13 +29,15 @@ body {
     list-style: none;
 } */
 
-.latestTitle {
-    color: black;
-    text-align: left;
-    padding-left: 30px;
-}
-
 .blogs {
     color: black;
+    display: inline;
+    background: #c4c4c4;
+    border: 5px solid #dddddd;
+    border-radius: 10px;
+}
+
+.btnBlog {
+    padding-left: 30px;
     display: inline;
 }

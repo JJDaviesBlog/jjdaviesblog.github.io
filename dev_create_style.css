@@ -8,6 +8,6 @@
 
 .blog {
     width: 500px;
-    vertical-align: text-top;
+    text-align: left;
     font: sans-serif;
 }

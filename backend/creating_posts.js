@@ -9,7 +9,7 @@ function addData() {
 
     let user = `${idx}`;
     idx += 1;
-    let smth = `${ImgURL}||${document.getElementById("title").value}||${document.getElementById("blog").value}||${document.getElementById("category").value}`;
+    let blogInfo = `${ImgURL}||${document.getElementById("title").value}||${document.getElementById("blog").value}||${document.getElementById("category").value}`;
 
     if (document.getElementById("title").value == "" || document.getElementById("blog").value == "") {
         document.getElementById("storage").innerHTML = "Please enter some text.";
@@ -17,14 +17,14 @@ function addData() {
 
     } else {
         // allows multiple blogs to be published by one user
-        localStorage.setItem(user, smth);
+        sessionStorage.setItem(user, blogInfo);
         document.getElementById("storage").innerHTML = `Data added: ${document.getElementById("title").value}`;
-        console.log(localStorage);
+        console.log(sessionStorage);
     }
 }
 
 function clearStorage() {
-    localStorage.clear();
+    sessionStorage.clear();
     document.getElementById("storage").innerHTML = "All data removed!";
-    console.log(localStorage);
+    console.log(sessionStorage);
 }

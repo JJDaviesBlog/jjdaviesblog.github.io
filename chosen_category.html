@@ -21,8 +21,8 @@
                 const chosen = params.get('chosen');
                 document.getElementById("categories").innerText = chosen;
 
-                for (let i = 0; i < localStorage.length; i++) {
-                    let title_blog = localStorage.getItem(localStorage.key(i));
+                for (let i = 0; i < sessionStorage.length; i++) {
+                    let title_blog = sessionStorage.getItem(sessionStorage.key(i));
 
                     if (title_blog.includes(chosen)) {
                         let blogTitles = document.createElement("button");
@@ -33,7 +33,7 @@
                         blogTitles.innerText = title_blog.split("||")[1];
                         blogTitles.style.color = 'black';
                         blogTitles.style.textAlign = 'centre';
-                        blogTitles.style.fontSize = '20px';
+                        blogTitles.style.fontSize = '15px';
                         blogTitles.style.width = '150px';
                         blogTitles.style.height = '150px';
 

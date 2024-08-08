@@ -25,13 +25,15 @@
             const params = new URLSearchParams(window.location.search);
             const chosen = params.get('chosen');
 
-            let title_blog = localStorage.getItem(localStorage.key(chosen)).split("||");
+            let title_blog = sessionStorage.getItem(sessionStorage.key(chosen)).split("||");
             let img = document.createElement("img");
             img.src = title_blog[0];
+            img.width = '100px';
+            img.height = '100px';
 
             document.body.appendChild(img);
             document.getElementById("title").innerText = `${title_blog[1]}`;
-            document.getElementById("blog").innerText = `${title_blog[2]}`;
+            document.getElementById("blog").innerHTML = `${title_blog[2]}`;
             document.getElementById("category").innerText = `Category: ${title_blog[3]}`;
         </script>
     </body>

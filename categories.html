@@ -21,8 +21,8 @@
                     let visited = new Set();
     
                     // get all categories from all blog
-                    for (let i = 0; i < localStorage.length; i++) {
-                        let title_blog = localStorage.getItem(localStorage.key(i));
+                    for (let i = 0; i < sessionStorage.length; i++) {
+                        let title_blog = sessionStorage.getItem(sessionStorage.key(i));
                         if (!(title_blog.split("||").includes("undefined"))) {
                             let cate_gory = title_blog.split("||")[3];
                             visited.add(cate_gory);
